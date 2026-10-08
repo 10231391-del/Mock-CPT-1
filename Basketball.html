@@ -1,24 +1,67 @@
 <!DOCTYPE html>
 <html>
+ 
 <head>
-  <title>Basketball</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background-color: rgb(62, 98, 165);
-      display: flex;
-      flex-direction: column;   
-      justify-content: center;  
-      align-items: center;      
-    }
-  </style>
+   <title>basketball</title>
+   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+   <style>
+       
+   </style>
 </head>
-<body>
-  <h1>Score it!</h1>
-  <button onclick="clickButton()" style="font-size: 80px; background: none; border: none; cursor: pointer;">
-  🏀
-</button>
 
+<body>
+
+   <header>
+       <h2>Score it!</h2>
+   </header>
+
+   
+   <div x-data="webApp">
+       
+       
+       <h3 x-text="currentPhrase" style="min-height: 40px; font-size: 24px; color: navy;"></h3>
+
+       <button @click="play()" style="font-size: 80px; background: none; border: none; cursor: pointer;">
+           🏀
+       </button>
+       
+   </div> 
+      
+   <footer>
+       <p>© 2026-2027<br>
+       AP Computer Science Principles<br>
+       George Washington High School</p>
+   </footer>
+  
+   <script>
+       document.addEventListener('alpine:init', () => {
+           Alpine.data('webApp', () => ({
+               
+               phrasesForScores: [
+                   'Scored a 3-pointer!',
+                   'Got blocked!',
+                   'Made a contested layup!',
+                   'Airball!',
+                   'Swoosh! Nothing but net.',
+                   'Stole the ball and slammed it!',
+                   'In and out, missed the shot!',
+                   'Hit a buzzer beater!',
+                   'You made a turnover',
+                   'Reffffff,thats a foul' 
+               ],
+               
+               
+               currentPhrase: '',
+               
+               
+               play() {
+                   let randomIndex = Math.floor(Math.random() * this.phrasesForScores.length);
+                   this.currentPhrase = this.phrasesForScores[randomIndex];
+               }
+           }));
+       });
+   </script>
 </body>
 </html>
+<!--Atribution 
+Used the assitance of gemini for the function+list -->
