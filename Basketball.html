@@ -40,24 +40,28 @@
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); 
 }
    </style>
+   <!--CSS code ends here-->
 </head>
 
 <body> 
-
+    <!--Title "Score It!"-->
    <header>
-       <h2>Score It!</h2>    
+       <h2>Score It!</h2> 
    </header>
 
    <div x-data="webApp">
-       
-       <h3 x-text="currentPhrase" style="min-height: 40px; font-size: 24px; color: rgb(255, 238, 0);"></h3>
-
+       <!--Output phrases-->
+       <h3 x-text="currentPhrase" style="min-height: 40px; font-size: 24px; color: rgb(255, 238, 0);"></h3> 
+       <!--Basketball button code below-->
        <button @click="play()" style="font-size: 120px; background: none; border: none; cursor: pointer;"> 
            🏀
        </button>
-       
+        <!--Shot counter display below-->
+       <p style="font-size: 20px; font-weight: bold; color: #ffaa00;">
+        Total Shots Taken: <span x-text="clickCount"></span>
+       </p>
    </div> 
-   
+   <!--Footter text-->
    <footer>
        <p>© 2026-2027<br>
        AP Computer Science Principles<br>
@@ -78,16 +82,18 @@
                    'In and out, missed the shot!',
                    'Hit a buzzer beater!',
                    'You made a turnover',
-                   'Reffffff,that is a foul' 
+                   'Reffffff,that is a foul' , //Inspired by Shota Gagnizde
+                   'Ref go home bruh!' //Inspired by Shota Gagnizde
                ],
-               
               
-               currentPhrase: '',
+               currentPhrase: '', // Holds phrasesForScores
+               clickCount: 0, // Stores click count
                
                // Function that selects a random phrase from phrasesForScores and outputs it on the screen
                play() {
                    let randomIndex = Math.floor(Math.random() * this.phrasesForScores.length); 
                    this.currentPhrase = this.phrasesForScores[randomIndex];
+                   this.clickCount++;
                }
            }));
        });
