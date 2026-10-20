@@ -3,8 +3,8 @@
  
 <head>
    <title>basketball</title>
-   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
-   <!--CSS code - all I did is to center the title and the button and make the fotter on the bootom right+
+   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+   <!--CSS code - all I did is to center the title and the button and make the footer on the bottom right+
    change text color and background color + change font size-->
    <style>
     body{
@@ -19,6 +19,7 @@
       flex-direction: column;
       align-items: center;
 
+
     }
     footer{
       margin-top: auto;
@@ -29,45 +30,48 @@
       color: #cccccc;
     }
 
+
     header h2 {
     font-size: 64px;                      
-    font-weight: 800;                     
-    color: #ffaa00;                       
+    font-weight: 800;                    
+    color: #ffaa00;                      
     text-transform: uppercase;            
     letter-spacing: 2px;                  
     margin-top: 20px;
     margin-bottom: 10px;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); 
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
 }
    </style>
    <!--CSS code ends here-->
 </head>
 
-<body> 
+
+<body>
     <!--Title "Score It!"-->
    <header>
-       <h2>Score It!</h2> 
+       <h2>Score It!</h2>
    </header>
+
 
    <div x-data="webApp">
        <!--Output phrases-->
-       <h3 x-text="currentPhrase" style="min-height: 40px; font-size: 24px; color: rgb(255, 238, 0);"></h3> 
+       <h3 x-text="currentPhrase" style="min-height: 40px; font-size: 24px; color: rgb(255, 238, 0);"></h3>
        <!--Basketball button code below-->
-       <button @click="play()" style="font-size: 120px; background: none; border: none; cursor: pointer;"> 
+       <button @click="play()" style="font-size: 120px; background: none; border: none; cursor: pointer;">
            🏀
        </button>
         <!--Shot counter display below-->
        <p style="font-size: 20px; font-weight: bold; color: #ffaa00;">
         Total Shots Taken: <span x-text="clickCount"></span>
        </p>
-   </div> 
-   <!--Footter text-->
+   </div>
+   <!- Footer text-->
    <footer>
        <p>© 2026-2027<br>
        AP Computer Science Principles<br>
        George Washington High School</p>
    </footer>
-  
+ 
    <script>
        document.addEventListener('alpine:init', () => {
            Alpine.data('webApp', () => ({
@@ -85,13 +89,13 @@
                    'Reffffff,that is a foul' , //Inspired by Shota Gagnizde
                    'Ref go home bruh!' //Inspired by Shota Gagnizde
                ],
-              
+             
                currentPhrase: '', // Holds phrasesForScores
                clickCount: 0, // Stores click count
                
                // Function that selects a random phrase from phrasesForScores and outputs it on the screen
                play() {
-                   let randomIndex = Math.floor(Math.random() * this.phrasesForScores.length); 
+                   let randomIndex = Math.floor(Math.random() * this.phrasesForScores.length);
                    this.currentPhrase = this.phrasesForScores[randomIndex];
                    this.clickCount++;
                }
@@ -100,8 +104,11 @@
    </script>
 </body>
 </html>
-<!--Atribution 
-Used the assitance of Gemini for the function+list+CSS code-->
+<!--Attribution
+Used the assistance of Gemini for the function+list+CSS code-->
+
+
 
 
 <!--In html all I did is to add title, footer, button, and a header-->
+
